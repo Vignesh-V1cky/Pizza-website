@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Complete Responsive Pizza Shop Website Design</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <section class="flex">
+
+      <a href="#home" class="logo">A1 PIZZA</a>
+
+      <nav class="navbar">
+         <a href="#home">Home</a>
+         <a href="#about">About</a>
+         <a href="#menu">Menu</a>
+         <a href="#order">Order</a>
+         <a href="#testimonials">Testimonials</a>
+         <a href="#faq">Faq</a>
+      </nav>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="order-btn" class="fas fa-box"></div>
+         <div id="cart-btn" class="fas fa-shopping-cart"><span class="quantity">0</span></div>
+      </div>
+
+   </section>
+
+</header>
+
+<!-- header section ends -->
+
+<div class="user-account">
+
+   <section>
+
+      <div id="close-account"><span>close</span></div>
+      <div id="login-form">
+      <div class="user">
+         <p><span>you are not logged in, log in now!</span></p>
+      </div>
+
+         <form action="" method="post" id="loginForm">
+            <h3>login now</h3>
+            <input type="email" name="email" required class="box" placeholder="enter your email" maxlength="50" id="loginy" >  
+            <div class="pwddiv">
+            <input type="password" id="pass" required class="box" placeholder="enter your password" maxlength="20">
+            <i class="fa fa-eye" id="open" onclick="showpwd()"></i>
+            <i class="fa fa-eye-slash" id="close" onclick="showpwd()"></i>
+            </div>
+            <input type="submit" value="login now" name="login" class="btn" onclick="handleLogin(event)">
+            <p>Don't have an account? <a href="javascript:void(0)" onclick="toggleForm('signup')">Sign Up</a></p>
+         </form>
+      </div>
+      <div id="signup-form" style="display: none;">
+         <form action="" method="post" id="form">
+            <h3>register now</h3>
+            
+                <input type="Name" id="signupName" required class="box" placeholder="Username">                     
+                <input type="Phone_no" id="signupMobile" required class="box" placeholder="Phone no">
+                <input type="Email" id="signupEmail" required class="box" placeholder="Email">
+                <input type="address" id="signupAddress" required class="box" placeholder="address">
+               <div class="pwd">
+                  <input type="password" id="pas" required class="box" placeholder="Password">
+                  <i class="fa fa-eye" id="opn" onclick="showpd()"></i>
+                  <i class="fa fa-eye-slash" id="cls" onclick="showpd()"></i>
+               </div>
+               <div class="log">
+                  <button type="submit" class="btn" id="login" onclick="handleSignup(event)">Register Now</button>
+                  <p>Already have an account? <a href="javascript:void(0)" onclick="toggleForm('login')">Login</a></p>
+               </div>
+         </form>
+      </div>
+      <div class="logged-in" id="profile-container" style="display: none;">
+         <form id="profile">
+            <h2>Personal info</h2>
+            <div class="user-image">
+               <img id="profile-image" src="images/images.jpg" alt="Profile Image">
+               <label for="file-path">
+               <i class="fa fa-camera"></i>
+               </label>
+               <input type="file" accept="image/*" onchange="uploadImage(event)" id="file-path" class="user-file">
+            </div>
+
+
+
+            <div class="info">
+               <div class="dis-box">
+                  <i class="fa fa-user"></i>
+                  <a id="displayText" ><span id="profileName"></span></a>
+                  <button type="submit" class="fas fa-edit" name="update_qty" onclick="editText()"></button>
+               </div>
+               <div class="edit-box">
+                  <input type="text" id="editTextBox" class="txt-bx">
+                  <button class="save-btn" onclick="saveText()">save</button>
+               </div>
+            </div>
+
+            <div class="info">
+               <div class="dis-box">
+                  <i class="fa fa-phone"></i>
+                  <a id="displayTextP" ><span id="profileMobile"></span></a>
+                  <button type="submit" class="fas fa-edit" name="update_qty" onclick="editTextP()"></button>
+               </div>
+               <div class="edit-boxP">
+                  <input type="text" id="editTextBoxP" class="txt-bx" value="">
+                  <button class="save-btn" onclick="saveTextP()">save</button>
+               </div>
+            </div>
+
+            <div class="info">
+               <div class="dis-box">
+                  <i class="fa fa-envelope"></i>
+                  <a id="displayTextE" ><span id="profileEmail"></span></a>
+                  <button type="submit" class="fas fa-edit" name="update_qty" onclick="editTextE()"></button>
+               </div>
+               <div class="edit-boxE">
+                  <input type="text" id="editTextBoxE" class="txt-bx" value="">
+                  <button class="save-btn" onclick="saveTextE()">save</button>
+               </div>
+            </div>
+
+            <div class="info">
+               <div class="dis-box">
+                  <i class="fa fa-address-card"></i>
+                  <a id="displayTextA" ><span id="profileAddress"></span></a>
+                  <button type="submit" class="fas fa-edit" name="update_qty" onclick="editTextA()"></button>
+               </div>
+               <div class="edit-boxA">
+                  <input type="text" id="editTextBoxA" class="txt-bx" value="">
+                  <button class="save-btn" onclick="saveTextA()">save</button>
+               </div>
+            </div>
+
+
+            <div class="dis-box">
+               <i class="fa fa-language"></i>
+               <span>Select Language</span>
+               <select name="method" class="box">
+                  <option value="english">English</option>
+                  <option value="tamil">தமிழ்</option>
+                  <option value="hindi">हिन्दी</option>
+                  <option value="telugu">తెలుగు</option>
+               </select>
+            </div>
+            <div class="sign-out">
+               <button type="submit" class="btn" id="signout" onclick="logout()">sign out</button>
+            </div>
+         </form>
+      </div>
+
+   </section>
+
+</div>
+
+<div class="my-orders">
+
+   <section>
+
+      <div id="close-orders"><span>close</span></div>
+
+      <h3 class="title"> my orders </h3>
+
+      <div class="box">
+         <p>placed on : <span>06/04/2022</span> </p>
+         <p>name : <span>Vignesh</span> </p>
+         <p>number : <span>1234567890</span></p>
+         <p>address : <span>dno no. 123, down street, therpet, hosur, tamilnadu - 635109</span></p>
+         <p>payment method : <span>cash on delivery</span></p>
+         <p>your orders : </p>
+         <ul>
+            <li>pizza 1 x 1</li>
+            <li>pizza 2 x 3</li>
+            <li>pizza 3 x 2</li>
+            <li>pizza 7 x 1</li>
+        </ul>
+         <p>total price : <span>$11/-</span></p>
+         <p>payment status : <span style="color: var(--red);">pending</span> </p>
+      </div>
+
+   </section>
+
+</div>
+
+<div class="shopping-cart">
+
+   <section>
+
+      <div id="close-cart"><span>close</span></div>
+
+      <ul class="listCard">
+         
+      </ul>
+
+      <div class="tp">
+         Total:
+         <div class="t-box">0</div>
+         $
+      </div>
+      
+      <a href="#order" class="btn">order now</a>
+
+   </section>
+
+</div>
+
+<div class="home-bg">
+
+   <section class="home" id="home">
+
+      <div class="slide-container">
+
+         <div class="slide active">
+            <div class="image">
+               <img src="images/home-img-1.png" alt="">
+            </div>
+            <div class="content">
+               <h3>homemade Pepperoni Pizza</h3>
+               <div class="fas fa-angle-left" onclick="prev()"></div>
+               <div class="fas fa-angle-right" onclick="next()"></div>
+            </div>
+         </div>
+
+         <div class="slide">
+            <div class="image">
+               <img src="images/home-img-2.png" alt="">
+            </div>
+            <div class="content">
+               <h3>Pizza With Mushrooms</h3>
+               <div class="fas fa-angle-left" onclick="prev()"></div>
+               <div class="fas fa-angle-right" onclick="next()"></div>
+            </div>
+         </div>
+
+         <div class="slide">
+            <div class="image">
+               <img src="images/home-img-3.png" alt="">
+            </div>
+            <div class="content">
+               <h3>Mascarpone And Mushrooms</h3>
+               <div class="fas fa-angle-left" onclick="prev()"></div>
+               <div class="fas fa-angle-right" onclick="next()"></div>
+            </div>
+         </div>
+
+      </div>
+
+   </section>
+
+</div>
+
+
+
+<section class="about" id="about">
+
+   <h1 class="heading">about us</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <img src="images/about-1.svg" alt="">
+         <h3>made with love</h3>
+         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
+         <a href="#menu" class="btn">our menu</a>
+      </div>
+
+      <div class="box">
+         <img src="images/about-2.svg" alt="">
+         <h3>30 minutes delivery</h3>
+         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
+         <a href="#order" class="btn">order now</a>
+      </div>
+
+      <div class="box">
+         <img src="images/about-3.svg" alt="">
+         <h3>share with freinds</h3>
+         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
+         <a href="#menu" class="btn">our menu</a>
+      </div>
+
+   </div>
+
+</section>
+
+
+<section id="menu" class="menu">
+   
+   <h1 class="heading">our menu</h1>
+
+   <div class="boxcontainer">
+      
+   </div>
+
+</section>
+
+
+
+<section class="order" id="order">
+
+   <h1 class="heading">order now</h1>
+
+   <form action="" method="post">
+
+      <ul class="display-orders">
+
+      </ul>
+         
+
+      <div class="flex">
+         <div class="inputBox">
+            <span>your name :</span>
+            <input type="text" name="name" class="box" required placeholder="enter your name" maxlength="20">
+         </div>
+         <div class="inputBox">
+            <span>your number :</span>
+            <input type="number" name="number" class="box" required placeholder="enter your number" min="0">
+         </div>
+         <div class="inputBox">
+            <span>payment method</span>
+            <select name="method" class="box">
+               <option value="cash on delivery">cash on delivery</option>
+               <option value="credit card">credit card</option>
+               <option value="paytm">paytm</option>
+               <option value="paypal">paypal</option>
+            </select>
+         </div>
+         <div class="inputBox">
+            <span>address line 01 :</span>
+            <input type="text" name="flat" class="box" required placeholder="e.g. flat no." maxlength="50">
+         </div>
+         <div class="inputBox">
+            <span>address line 02 :</span>
+            <input type="text" name="street" class="box" required placeholder="e.g. street name." maxlength="50">
+         </div>
+         <div class="inputBox">
+            <span>pin code :</span>
+            <input type="number" name="pin_code" class="box" required placeholder="e.g. 123456" min="0">
+         </div>
+      </div>
+      <div class="tp">
+         Total:
+         <div class="total">0</div>
+         $
+      </div>
+
+      <input type="submit" value="order now" class="btn" name="order">
+
+   </form>
+
+</section>
+
+<!-- order section ends -->
+
+<section id="testimonials">
+   <h1 class="heading">What Our Customers Say</h1>
+   <div class="testimonial-container container">
+     <div class="testimonial-box">
+       <div class="customer-detail">
+         <div class="customer-photo">
+           <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt=""/>
+           <h3 class="customer-name">Ross Lee</h3>
+         </div>
+       </div>
+       <div class="star-rating">
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+       </div>
+       <p class="testimonial-text">
+         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit
+         voluptas cupiditate aspernatur odit doloribus non.
+       </p>
+      
+     </div>
+     <div class="testimonial-box">
+       <div class="customer-detail">
+         <div class="customer-photo">
+           <img src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg" alt=""/>
+           <h3 class="customer-name">Amelia Watson</h3>
+         </div>
+       </div>
+       <div class="star-rating">
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+       </div>
+       <p class="testimonial-text">
+         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit
+         voluptas cupiditate aspernatur odit doloribus non.
+       </p>
+      
+     </div>
+     <div class="testimonial-box">
+       <div class="customer-detail">
+         <div class="customer-photo">
+           <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" />
+           <h3 class="customer-name">Ben Roy</h3>
+         </div>
+       </div>
+       <div class="star-rating">
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+         <span class="fa fa-star checked"></span>
+       </div>
+       <p class="testimonial-text">
+         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit
+         voluptas cupiditate aspernatur odit doloribus non.
+       </p>
+      
+     </div>
+   </div>
+ </section>
+
+<!-- faq section starts  -->
+
+<section class="faq" id="faq">
+
+   <h1 class="heading">FAQ</h1>
+
+   <div class="accordion-container">
+
+      <div class="accordion active">
+         <div class="accordion-heading">
+            <span>how does it work?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quas. Quidem minima veniam accusantium maxime, doloremque iusto deleniti veritatis quos.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>how long does it take for delivery?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quas. Quidem minima veniam accusantium maxime, doloremque iusto deleniti veritatis quos.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>can I order for huge parties?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quas. Quidem minima veniam accusantium maxime, doloremque iusto deleniti veritatis quos.
+         </p>
+      </div>
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>how much protein it contains?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quas. Quidem minima veniam accusantium maxime, doloremque iusto deleniti veritatis quos.
+         </p>
+      </div>
+
+
+      <div class="accordion">
+         <div class="accordion-heading">
+            <span>is it cooked with oil?</span>
+            <i class="fas fa-angle-down"></i>
+         </div>
+         <p class="accrodion-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quas. Quidem minima veniam accusantium maxime, doloremque iusto deleniti veritatis quos.
+         </p>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- faq section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+   <div class="box-container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>phone number</h3>
+         <p>+123-456-7890</p>
+         <p>+111-222-3333</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-map-marker-alt"></i>
+         <h3>our address</h3>
+         <p>hosur, india - 635109</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-clock"></i>
+         <h3>opening hours</h3>
+         <p>09:00am to 10:00pm</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>email address</h3>
+         <p>a1pizza@gmail.com</p>
+         <p>a1pizzasupport@gmail.com</p>
+      </div>
+
+   </div>
+
+   <div class="credit">
+      &copy; copyright @ 2024 by <span>mr. web designer</span> | all rights reserved!
+   </div>
+
+</section>
+
+<!-- footer section ends -->
+
+</body>
+</html>
+
+
